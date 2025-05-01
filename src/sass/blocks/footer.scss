@@ -1,0 +1,67 @@
+@use '/src/sass/base/variables.scss' as *;
+
+.footer {
+    margin-top: 60px;
+    background-color: $dark;
+    &__your {
+        margin: 0 57px 40px 0;
+        .footer__header {
+            padding-top: 50px;
+            font-weight: 500;
+            font-size: 16px;
+            text-transform: uppercase;
+            color: $light;
+        }
+        .footer__info {
+            padding-top: 40px;
+            font-weight: 400;
+            font-size: 15px;
+            color: $light;
+        }
+        .footer__input-block {
+            padding-top: 40px;
+            input::placeholder {
+                color: $light;
+            }
+        }
+
+        .footer__email {
+
+            all: unset;
+            width: 275px;
+            height: 32px;
+            background-color: $dark;
+        }
+        .underline {
+            margin-top: 10px;
+            border: 1px solid $light;
+        }
+
+        .footer__label {
+            display: flex;
+            align-items: center;
+            margin-top: 26px;
+        }
+
+        .footer__check-block {
+            a {
+                color: #a22dc6;
+                text-decoration: none;
+                margin-left: 2px;
+            }
+        }
+
+        .footer__checkbox {
+            margin-right: 10px;
+            border: 1px solid $light;
+            border-radius: 2px;
+            width: 15px;
+            height: 15px;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 200%;
+            color: $light;
+            
+        }
+    }
+}

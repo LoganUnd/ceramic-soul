@@ -1,0 +1,90 @@
+@use '/src/sass/base/variables.scss' as *;
+
+
+.works {
+    padding-top: 60px;
+    &__slider {
+        margin-top: 40px;
+        padding-bottom: 45px;
+    }
+    .swiper-slide img {
+        width: 100%;
+
+    }
+    .works__slider-nav {
+        display: none;
+    }
+    .swiper-pagination {
+        bottom: -3px;
+    }
+
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        background-color: $dark;
+        border-radius: 0%;
+        opacity: 1;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .swiper-pagination-bullet-active {
+        background-color: $Ceramic;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .works {
+        .swiper-slide img {
+            display: block;
+            width: 380px;
+            margin: 0 auto;
+        }
+        &__slider {
+            margin-top: 40px;
+
+    }
+}}  
+
+@media screen and (min-width: 1200px) {
+    .works {
+        &__wrapper {
+            position: relative;
+            overflow: visible;
+        }
+        &__slider {
+            margin-top: 80px 40px 0 40px;
+
+        }
+        .swiper-slide img {
+			width: 100%;
+			margin: 0;}
+
+        .swiper-pagination {
+            bottom: 0px;
+        }
+        .works__slider-nav {
+            display: block;
+            position: absolute;
+            left: 101%;
+            top: 50%;
+            transform: translateY(-100%);
+        }
+
+        .icon-left-open {
+            right: -385px;
+        }
+
+        .icon-right-open {
+            left: -35px;
+        }
+    }}
+
+
+
+@media screen and (min-width: 1920px) {
+    .works {
+        padding-top: 100px;
+        .icon-right-open {
+            left: 1456px;
+        }
+
+}}

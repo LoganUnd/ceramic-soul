@@ -41,10 +41,10 @@
 	/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-.icon-left-open:before {
+.icon-right-open:before {
 	content: "\e800";
 } /* '' */
-.icon-right-open:before {
+.icon-left-open:before {
 	content: "\e801";
 } /* '' */
 .icon-facebook:before {
