@@ -170,5 +170,42 @@
             }
 
         }
-    
-    
+    @media screen and (min-width:1200px) {
+        .footer {
+            &__wrap {
+                display: flex;
+                flex-wrap: wrap;
+                column-gap: 148px
+            }
+            &__nav {
+                margin-top: 50px;
+            }
+            &__follow {
+                top: 8px;
+                right: 30px;
+            }
+            &__copyright {
+                margin: 0 auto;
+            }
+            &__your {
+                margin: 0 57px 50px 0;
+        }
+    }
+
+    @media screen and (min-width:1920px) {
+        .footer {
+            &__wrap {
+                column-gap: 314px
+            }
+            &__follow {
+                top: 30px;
+                left: 1558px;
+            }
+            &__your {
+                margin-top: 30px;
+            }
+            &__nav {
+                margin-top: 80px;
+            }
+}
+}}
