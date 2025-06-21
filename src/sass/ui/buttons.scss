@@ -3,8 +3,8 @@
 
 .btn-send {
     @include button;
-    width: 230px;
-    height: 50px;
+    width: 240px;
+    height: 40px;
     font-size: 20px;
     &:focus {
         outline: 1px solid $Ceramic;
@@ -24,6 +24,17 @@
     &:focus {
         outline: 1px solid $Ceramic;
         border: none;
+    }
+}
+
+.btn-read {
+    @include button;
+    width: 145px;
+    height: 32px;
+    font-size: 14px;
+    &:focus {
+        outline: 1px solid $Ceramic;
+        border: 1px solid $Ceramic;
     }
 }
 
@@ -52,7 +63,16 @@
             border: 1px solid $Ceramic;
         }
     }
-}
+    .btn-read {
+        &:active {
+            outline: 1px solid $Ceramic;
+            border: 1px solid $Ceramic;
+        }
+        &:hover {
+            color:$Ceramic;
+            border: 1px solid $Ceramic;
+        }
+}}
 
 
 @media screen and (min-width:1920px) {

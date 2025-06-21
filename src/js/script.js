@@ -9,6 +9,7 @@ import "purecss/build/grids-min.css";
 import "purecss/build/grids-responsive-min.css"
 
 import "/src/sass/style.scss";
+import JustValidate from 'just-validate';
 
 const burger = document.querySelector(".burger"),
 	close = document.querySelector(".header__menu-close"),
@@ -98,3 +99,45 @@ try {
 }
 
 // Обратите внимание, что значение block (в двух местах) можно спокойно
+
+try {
+  const validator = new JustValidate('#basic_form');
+
+  validator
+    .addField('#name', [
+      {
+        rule: 'required',
+      },
+      {
+        rule: 'minLength',
+        value: 2,
+      }
+    ])
+
+    .addField('#email', [
+      {
+        rule: 'required',
+      },
+      {
+        rule: 'email',
+      }
+    ])
+
+    .addField('#question', [
+      {
+        rule: 'required',
+      },
+      {
+        rule: 'minLength',
+        value: 5,
+      }
+    ])
+
+
+    .addField('#checkbox', [
+      {
+        rule: 'required',
+      }
+    ])
+  } catch (e) {}
+
