@@ -101,7 +101,9 @@ try {
 // Обратите внимание, что значение block (в двух местах) можно спокойно
 
 try {
-  const validator = new JustValidate('#basic_form');
+  const validator = new JustValidate('#basic_form', {
+    submitFormAutomatically: true 
+  });
 
   validator
     .addField('#name', [
@@ -111,6 +113,7 @@ try {
       {
         rule: 'minLength',
         value: 2,
+        errorMessage: "more big please",
       }
     ])
 
@@ -120,6 +123,7 @@ try {
       },
       {
         rule: 'email',
+        errorMessage: "it's not email its bullshit"
       }
     ])
 
@@ -130,14 +134,101 @@ try {
       {
         rule: 'minLength',
         value: 5,
-      }
-    ])
+      },
+    ], {
+      errorsContainer : document.querySelector ('#question').parentElement.querySelector ('.error-message'),
+    }
+    )
 
 
-    .addField('#checkbox', [
+    .addField('#checkbox', [ 
       {
-        rule: 'required',
+        rule: 'required', 
       }
-    ])
+    ],
+    {
+    errorsContainer: document
+      .querySelector ("#checkbox")
+      .parentElement.parentElement.querySelector(".checkbox-error-message"),
+    
+    }
+  )
+  .onSuccess((event) => {
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    console.log("Form submitted successfully!");
+    console.log("Form data:", Object.fromEntries(formData));
+
+    fetch("https://httpbin.org/post", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log("Success", data);
+        form.reset();
+      });
+  });
+
   } catch (e) {}
 
+
+  
+
+try {
+  const footerValidator = new JustValidate('#footer_scripts', {
+    submitFormAutomatically: true
+  });
+
+  footerValidator.addField('#footer_email', [
+    {
+      rule: 'required',
+    },
+    {
+      rule: 'email',
+      errorMessage: "it's not email its bullshit",
+    }
+  ]);
+
+  footerValidator.addField('#footer_checkbox', [ 
+    {
+      rule: 'required',
+      errorMessage: "you must to accept this terms", 
+    }
+  ]);
+
+  footerValidator.onSuccess((event) => {
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    console.log("Footer form submitted successfully!");
+    console.log("Footer form data:", Object.fromEntries(formData));
+
+    fetch("https://httpbin.org/post", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log("Footer form success", data);
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("Error submitting footer form:", error);
+      });
+  });
+
+} catch (e) {
+  console.error("Error setting up footer form validation:", e);
+}

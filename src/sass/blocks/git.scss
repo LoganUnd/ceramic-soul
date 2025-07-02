@@ -2,6 +2,10 @@
 
 .git {
     padding-top: 60px;
+    .just-validate-error-field {
+        border: none;
+        outline: 1px solid $ui-error;
+    }
     &__wrapper { 
             display: flex;
             flex-wrap: wrap;
@@ -42,7 +46,7 @@
         }
         &::placeholder {
             color: $ui-active;
-            font-style: 14px;
+            font-size: 14px;
         }
     }
     &__vase
@@ -70,7 +74,7 @@
         }
         &::placeholder {
             color: $ui-active;
-            font-style: 14px;
+            font-size: 14px;
         }
     }
     &__check-block {
@@ -133,6 +137,10 @@
             }
         &__wrapper {
             flex-wrap: nowrap;
+        }
+
+        &__vase {
+            animation: jumpSlide 3s;
         }
         &__vase-img{
             left: 444px;
